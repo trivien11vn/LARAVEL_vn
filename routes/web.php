@@ -26,10 +26,13 @@ Route::middleware(['auth']) -> group(function(){
 
         Route::prefix('products')->group(function () {
             Route::get('add', [ProductController::class, 'create']);
+            Route::post('add', [ProductController::class, 'store']);
+            Route::get('list', [ProductController::class, 'index']);
         });
 
         #Upload
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
+
     });
 });
 
