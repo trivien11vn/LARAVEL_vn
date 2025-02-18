@@ -40,37 +40,37 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    // public function show(Product $product)
-    // {
-    //     return view('admin.product.edit', [
-    //         'title' => 'Chỉnh Sửa Sản Phẩm',
-    //         'product' => $product,
-    //         'menus' => $this->productService->getMenu()
-    //     ]);
-    // }
+    public function show(Product $product)
+    {
+        return view('admin.product.edit', [
+            'title' => 'Chỉnh Sửa Sản Phẩm',
+            'product' => $product,
+            'menus' => $this->productService->getMenu()
+        ]);
+    }
 
 
-    // public function update(Request $request, Product $product)
-    // {
-    //     $result = $this->productService->update($request, $product);
-    //     if ($result) {
-    //         return redirect('/admin/products/list');
-    //     }
+    public function update(Request $request, Product $product)
+    {
+        $result = $this->productService->update($request, $product);
+        if ($result) {
+            return redirect('/admin/products/list');
+        }
 
-    //     return redirect()->back();
-    // }
+        return redirect()->back();
+    }
 
 
-    // public function destroy(Request $request)
-    // {
-    //     $result = $this->productService->delete($request);
-    //     if ($result) {
-    //         return response()->json([
-    //             'error' => false,
-    //             'message' => 'Xóa thành công sản phẩm'
-    //         ]);
-    //     }
+    public function destroy(Request $request)
+    {
+        $result = $this->productService->delete($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'Xóa thành công sản phẩm'
+            ]);
+        }
 
-    //     return response()->json([ 'error' => true ]);
-    // }
+        return response()->json([ 'error' => true ]);
+    }
 }

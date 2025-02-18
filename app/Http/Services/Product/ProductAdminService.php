@@ -70,7 +70,6 @@ class ProductAdminService
             \Log::info($err->getMessage());
             return false;
         }
-
         return true;
     }
 

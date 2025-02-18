@@ -44,7 +44,7 @@ class MenuController extends Controller
 
     public function show(Menu $menu){
         return view('admin.menu.edit',[
-            'title' => 'Chinh Sua Danh Muc' . $menu->name,
+            'title' => 'Chinh Sua Danh Muc ' . $menu->name,
             'menu' => $menu,
             'menus' => $this->menuService->getParent(),
         ]);
