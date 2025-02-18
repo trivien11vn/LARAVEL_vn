@@ -12,8 +12,9 @@ class MenuService{
        return Menu::where('parent_id', 0)->get();
     }
 
-    public function getAll(){
-        return Menu::orderByDesc('id')->paginate(20);
+    public function getAll()
+    {
+        return Menu::orderbyDesc('id')->paginate(20);
     }
     
     public function create ($request){
@@ -45,5 +46,20 @@ class MenuService{
         }
 
         return false;
+    }
+
+    public function update($request, $menu){
+        if($request->input('parent_id') !== $menu-> id){
+            $menu->parent_id = (int) $request->input('parent_id');
+        }
+
+        $menu->name = (string) $request->input('name');
+        $menu->description = (string) $request->input('description');
+        $menu->content = (string) $request->input('content');
+        $menu->active = (int) $request->input('active');
+        $menu->save();
+
+        Session::flash('success','Cập nhật thành công danh mục');
+        return true;
     }
 }
