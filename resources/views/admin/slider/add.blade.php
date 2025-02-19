@@ -17,19 +17,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="menu">Sắp xếp</label>
-                <input type="text" name="sort_by" value="{{ old('name') }}" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label>Mô Tả </label>
-                <textarea name="description" class="form-control">{{ old('description') }}</textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Mô Tả Chi Tiết</label>
-                <textarea name="content" id="content" class="form-control">{{ old('content') }}</textarea>
+                <input type="number" name="sort_by" value="1" class="form-control">
             </div>
 
             <div class="form-group">
@@ -56,7 +47,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+            <button type="submit" class="btn btn-primary">Thêm Slider</button>
         </div>
         @csrf
     </form>
