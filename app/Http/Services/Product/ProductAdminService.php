@@ -6,6 +6,7 @@ namespace App\Http\Services\Product;
 
 use App\Models\Menu;
 use App\Models\Product;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class ProductAdminService
@@ -38,6 +39,7 @@ class ProductAdminService
         if ($isValidPrice === false) return false;
 
         try {
+            Log::info($request);
             $request->except('_token');
             Product::create($request->all());
 

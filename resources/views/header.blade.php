@@ -1,6 +1,5 @@
 	<!-- Header -->
 	<header>
-
 		@php
 			$menuHtml = \App\Helpers\Helper::menus($menus)
 		@endphp

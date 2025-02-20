@@ -14,7 +14,11 @@ class MenuService{
 
     public function getAll()
     {
-        return Menu::orderbyDesc('id')->paginate(20);
+        return Menu::orderbyDesc('id')->where('parent_id',0)->paginate(20);
+    }
+
+    public function show(){
+        return Menu::select('name', 'id')->orderbyDesc('id')->get();
     }
     
     public function create ($request){
@@ -25,7 +29,6 @@ class MenuService{
                 'description' => (string) $request->input('description'),
                 'content' => (string) $request->input('content'),
                 'active' => (string) $request->input('active'),
-                'slug' => Str::slug($request->input('name'),'-'),
             ]);
             Session::flash('success', 'Tạo Danh Mục Thành Công');
 
@@ -61,5 +64,26 @@ class MenuService{
 
         Session::flash('success','Cập nhật thành công danh mục');
         return true;
+    }
+
+    public function getId($id){
+        return Menu::where('id', $id)->where('active', 1)->firstOrFail();
+    }
+
+    public function getProduct($menu, $request){
+        $query =  $menu->products()
+            ->select('id','name','price','price_sale', 'thumb')
+            -> where('active',1);
+            
+        if ($request->input('price')) {
+            $query->orderBy('price', $request->input('price'));
+        }
+        else{
+            $query->orderbyDesc('id');
+        }
+
+        return $query
+            ->paginate(12)
+            ->withQueryString();
     }
 }

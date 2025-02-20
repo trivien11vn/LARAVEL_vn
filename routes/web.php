@@ -46,11 +46,13 @@ Route::middleware(['auth']) -> group(function(){
 
         #Upload
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
-
+        
     });
 });
 
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
+Route::post('/services/load-product', [\App\Http\Controllers\MainController::class,'loadProduct']);
+Route::get('danh-muc/{id}-{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
 
 
 
