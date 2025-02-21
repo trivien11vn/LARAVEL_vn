@@ -99,9 +99,7 @@
                             </div>
 
                             <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-
                                 <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
-{{-- 
                                     <div class="p-t-15">
                                         <span class="stext-112 cl8">
                                             Thông Tin Khách Hàng
@@ -126,8 +124,7 @@
                                         <div class="bor8 bg0 m-b-12">
                                             <textarea class="cl8 plh3 size-111 p-lr-15" name="content"></textarea>
                                         </div>
-
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
 
