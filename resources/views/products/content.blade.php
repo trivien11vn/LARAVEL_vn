@@ -9,7 +9,7 @@
 
             <a href="/danh-muc/{{ $product->menu->id }}-{{ \Str::slug($product->menu->name) }}.html"
                class="stext-109 cl8 hov-cl1 trans-04">
-                {{ $product->menu->name }}
+                {{ $product->menu->name }} 
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
 
@@ -94,19 +94,18 @@
                                                 </div>
 
                                                 <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                       name="num_product" value="1">
+                                                    name="num_product" value="1">
 
                                                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                     <i class="fs-16 zmdi zmdi-plus"></i>
                                                 </div>
                                             </div>
-
-
                                             <button type="submit"
                                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
                                                 Add to cart
                                             </button>
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
+
                                         @endif
                                         @csrf
                                     </form>
